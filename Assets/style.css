@@ -1,49 +1,98 @@
+body {
+  background-color:rgb(64, 145, 108);
+}
+
+
+
 #intro {
   text-align: center;
-  margin-top: 18%;
+  margin-top: 3%;
   font-size: 40px;
-  background-color: cadetblue;
+  background:rgb(30, 34, 33);
   margin-left: 550px;
   margin-right: 550px;
+  color:rgb(149, 213, 178);
 }
 
 .quiz-instructions{
   text-align: center;
   font-size: 25px;
-  background-color: rgb(246, 242, 212);
+  background:rgb(30, 34, 33);
   margin-left: 625px;
   margin-right: 625px;
+  line-height: 20px;
+  color:white;
+  padding:10px;
+margin-bottom: 25px;
 }
 
 #start-button {
   padding: 15px;
   font-size: 25px;
-  background-color:rgb(34, 87, 126);
-  color:cornsilk;
+  background: rgb(216, 243, 220);
+ color:rgb(30, 34, 33);
   margin-left: 47%;
+  margin-bottom: 30px;
   background-size: 100px;
   width: 150px;
+}
+
+#start-button:hover {
+  cursor: pointer;
 }
 
 #time {
     position:absolute;
     top:0;
     right:0;
-   
+
 }
 
-#quiz-questions {
+#question {
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(246, 242, 212);
+  font-size: 30px;
+  background:rgb(30, 34, 33);
   margin-left: 625px;
   margin-right: 625px;
+  margin-bottom: 50px;
+  padding: 70px 0;
+  max-height: 35px;
+  color:rgb(149, 213, 178);
+  position: relative;
 }
 
-.answer-buttons {
-  text-align: center;
-  font-size: 25px;
-  background-color: rgb(246, 242, 212);
+.answers-box {
+  position: relative;
   margin-left: 625px;
   margin-right: 625px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border-color: violet;
+  background:rgb(30, 34, 33);
+  font-size: 16px;
+  color:white;
+  text-align: center;
+  display: flex;
+  padding:20px;
+}
+
+.answers-box:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgb(70, 0, 128);
+  cursor: pointer;
+}
+
+.answer-letter {
+  color:rgb(149, 213, 178);
+  margin-left: 500px;
+  font-size: 20px;
+}
+
+.answer-text {
+  margin-right: 550px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.hide {
+  display: none;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,52 @@
   <title>Quiz</title>
   <link rel="stylesheet" href="./Assets/style.css">
 </head>
+
 <body>
-<header>
-  <h1 id="intro">Coding Quiz Challenge!</h1>
-  <section class="quiz-instructions">
-  <p> This is a quiz to test your knowledge on *subject*.</p> 
-  <p>Select your answer from the given options. If you answer a question incorrectly, time will be deducted.</p> 
-  <p>The quiz is finished when you either answer all of the questions correctly or the timer reaches 0. Good luck!</p>
-  </section>
-  <section>
-    <h1 id= "time" style="text-align:right;"></h1>
-    <button id = "start-button"><p>Start!</p></button>
-    
-    <section class = "answer-buttons">
-      <h2 id = "quiz-questions"></h2>
-    <!-- <button id = "answer1"></button>
-    <button id = "answer2"></button>
-    <button id = "answer3"></button>
-    <button id = "answer4"></button> -->
-    <p id= "results"></p>
+  <header>
+    <h1 id="intro">Coding Quiz Challenge!</h1>
+    <section class="quiz-instructions">
+      <p> This is a quiz to test your knowledge on Javascript.</p>
+      <p>Select your answer from the given options. If you answer a question incorrectly, time will be deducted.</p>
+      <p>The quiz is finished when you either answer all of the questions correctly or the timer reaches 0. Your
+        remaining time will be saved as your score.</p>
+      <p>Good luck!</p>
     </section>
-  </section>
-</header>
-<script src="./Assets/script.js"></script>
+    <section class="quiz-display">
+      <!-- Time display -->
+      <h1 id="time"></h1>
+
+      <button id="start-button">
+        <p>Start!</p>
+      </button>
+      <!-- question box -->
+      <div class="quiz-box hide">
+        <h2 id="question">"Question"</h2>
+        <!-- answer boxes -->
+        <div class="answers-container">
+          <!-- <div class="answers-box">
+            <p class="answer-letter">A.)</p>
+            <p class="answer-text" data-number="1">Choice</p>
+          </div>
+          <div class="answers-box">
+            <p class="answer-letter">B.)</p>
+            <p class="answer-text" data-number="2">Choice</p>
+          </div>
+          <div class="answers-box">
+            <p class="answer-letter">C.)</p>
+            <p class="answer-text" data-number="3">Choice</p>
+          </div>
+          <div class="answers-box">
+            <p class="answer-letter">D.)</p>
+            <p class="answer-text" data-number="4">Choice</p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <script src="./Assets/script.js"></script>
 </body>
+
 </html>
 
 
