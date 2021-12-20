@@ -24,3 +24,26 @@
   background-size: 100px;
   width: 150px;
 }
+
+#time {
+    position:absolute;
+    top:0;
+    right:0;
+   
+}
+
+#quiz-questions {
+  text-align: center;
+  font-size: 25px;
+  background-color: rgb(246, 242, 212);
+  margin-left: 625px;
+  margin-right: 625px;
+}
+
+.answers {
+  text-align: center;
+  font-size: 25px;
+  background-color: rgb(246, 242, 212);
+  margin-left: 625px;
+  margin-right: 625px;
+}
