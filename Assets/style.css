@@ -1,0 +1,26 @@
+#intro {
+  text-align: center;
+  margin-top: 18%;
+  font-size: 40px;
+  background-color: cadetblue;
+  margin-left: 550px;
+  margin-right: 550px;
+}
+
+.quiz-instructions{
+  text-align: center;
+  font-size: 25px;
+  background-color: rgb(246, 242, 212);
+  margin-left: 625px;
+  margin-right: 625px;
+}
+
+#start-button {
+  padding: 15px;
+  font-size: 25px;
+  background-color:rgb(34, 87, 126);
+  color:cornsilk;
+  margin-left: 47%;
+  background-size: 100px;
+  width: 150px;
+}
