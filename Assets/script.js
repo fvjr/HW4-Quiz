@@ -2,8 +2,6 @@
 var startButton = document.getElementById("start-button");
 //Access value of time remaining 
 var time = document.getElementById("time");
-//Initial amount of time for quiz 
-var timeLeft = 60;
 //Access area where questions will be displayed
 var questionDisplay = document.getElementById("question");
 //Access area where answers will be displayed
@@ -17,35 +15,36 @@ var removeInstructions = document.querySelector(".quiz-instructions");
 var score = timeLeft;
 //Text for incorrect answer
 var answerValidator = document.getElementById("results");
-
+//Initial amount of time for quiz 
+var timeLeft = 60;
 var currentQuestion = {};
 
 //Quiz questions object
 var questions = [
   {
-    question: 'Which of the following Javascript operators would you use to check strict equality between two different values?',
+    question: 'Which of the following JavaScript operators would you use to check strict equality between two different values?',
     choices: ['===', '==', '<=>', '(=)'],
     correctAnswer: "a",
   },
   {
-    question: 'Which of the following Javascript operators would you use to check strict equality between two different values? --2',
-    choices: ['===', '==', '<=>', '(=)'],
+    question: 'Which of the following is not a JavaScript data type?',
+    choices: ['string', 'delta', 'number', 'boolean'],
+    correctAnswer: "b",
+  },
+  {
+    question: 'What is the following line of code an example of? var cats = ["Maine Coon", "Scottish Fold", "Tabby", "Siamese"]',
+    choices: ['for loop', 'boolean', 'array', 'const'],
+    correctAnswer: "c",
+  },
+  {
+    question: 'Which method would you use to remove the last element from an array?',
+    choices: ['pop()', 'removeLast()', 'push()', 'flex()'],
     correctAnswer: "a",
   },
   {
-    question: 'Which of the following Javascript operators would you use to check strict equality between two different values?',
-    choices: ['===', '==', '<=>', '(=)'],
-    correctAnswer: "a",
-  },
-  {
-    question: 'Which of the following Javascript operators would you use to check strict equality between two different values?',
-    choices: ['===', '==', '<=>', '(=)'],
-    correctAnswer: "a",
-  },
-  {
-    question: 'Which of the following Javascript operators would you use to check strict equality between two different values?',
-    choices: ['===', '==', '<=>', '(=)'],
-    correctAnswer: "a",
+    question: 'Which type of variable has a value that is unable to be reassinged?',
+    choices: ['perm', 'let', 'var', 'const'],
+    correctAnswer: "d",
   }];
 
 
@@ -70,7 +69,7 @@ startButton.addEventListener('click', function () {
       time.setAttribute('style', 'color:red');
       time.textContent = "You're out of time!";
     }
-  }, 500);
+  }, 1000);
 callQuestion();
 });
 
@@ -93,6 +92,8 @@ function checkAnswer(event){
     console.log("Correct!");
   } else {
     console.log("Wrong!");
+    timeLeft = timeLeft - 5;
+    
   } 
   q ++;
   if (questions.length === q) {
@@ -103,7 +104,7 @@ function checkAnswer(event){
   
 }
 function endGame() {
-  if (q.length = 5 || timeLeft === 0)
+  if (q.length = 5 || timeLeft <0)
   alert("Game over"); 
 }
 
