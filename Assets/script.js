@@ -17,34 +17,38 @@ var score = timeLeft;
 var answerValidator = document.getElementById("results");
 //Initial amount of time for quiz 
 var timeLeft = 60;
-var currentQuestion = {};
+// var currentQuestion = {};
+
+var winCount = 0;
+
+//save user inputs to array
 
 //Quiz questions object
 var questions = [
   {
     question: 'Which of the following JavaScript operators would you use to check strict equality between two different values?',
     choices: ['===', '==', '<=>', '(=)'],
-    correctAnswer: "a",
+    correctAnswer: "===",
   },
   {
     question: 'Which of the following is not a JavaScript data type?',
     choices: ['string', 'delta', 'number', 'boolean'],
-    correctAnswer: "b",
+    correctAnswer: "delta",
   },
   {
     question: 'What is the following line of code an example of? var cats = ["Maine Coon", "Scottish Fold", "Tabby", "Siamese"]',
     choices: ['for loop', 'boolean', 'array', 'const'],
-    correctAnswer: "c",
+    correctAnswer: "array",
   },
   {
     question: 'Which method would you use to remove the last element from an array?',
     choices: ['pop()', 'removeLast()', 'push()', 'flex()'],
-    correctAnswer: "a",
+    correctAnswer: "pop()",
   },
   {
     question: 'Which type of variable has a value that is unable to be reassinged?',
     choices: ['perm', 'let', 'var', 'const'],
-    correctAnswer: "d",
+    correctAnswer: "const",
   }];
 
 
@@ -56,13 +60,15 @@ startButton.addEventListener('click', function () {
   removeIntro.remove();
   //removes quiz instructions
   removeInstructions.remove();
+  //access quiz-box element
   var quizBox = document.querySelector(".quiz-box");
+  //makes quiz-box visible
   quizBox.classList.remove("hide");
   //starts timer starting at 60s (timeLeft)
   var timer = setInterval(function () {
     timeLeft--;
     time.textContent = timeLeft + " seconds remaining, hurry!";
-    if (timeLeft === 0) {
+    if (timeLeft === 0 || winCount == 5) {
       endGame();
       //Stops timer when it hits 0 
       clearInterval(timer);
@@ -70,42 +76,53 @@ startButton.addEventListener('click', function () {
       time.textContent = "You're out of time!";
     }
   }, 1000);
-callQuestion();
+  //begin showing questions
+  callQuestion();
 });
 
 function callQuestion() {
   questionDisplay.textContent = questions[q].question;
   var answerContainer = document.querySelector(".answers-container");
   answerContainer.innerHTML = "";
-  questions[q].choices.forEach(function(choice){
-  var answerBox = document.createElement("div");
-  answerBox.setAttribute("class", "answers-box");
-  answerBox.textContent = choice;
-  answerBox.dataset.choice = choice;
-  answerBox.onclick = checkAnswer;
-  answerContainer.appendChild(answerBox);
+  questions[q].choices.forEach(function (choice) {
+    var answerBox = document.createElement("div");
+    answerBox.setAttribute("class", "answers-box");
+    answerBox.textContent = choice;
+    answerBox.dataset.choice = choice;
+    answerBox.onclick = checkAnswer;
+    answerContainer.appendChild(answerBox);
   });
 }
-function checkAnswer(event){
-  var choice =event.target.dataset.choice; 
+
+function checkAnswer(event) {
+  var choice = event.target.dataset.choice;
+  console.log(event);
   if (choice === questions[q].correctAnswer) {
     console.log("Correct!");
+    winCount++;
+    console.log(winCount);
+    //when users select correct answer, save it to an array to later be referenced to for "game over" condition
+    var userChoices = [];
+    userChoices.push(choice.value);
+    console.log(userChoices);
+    q++;
   } else {
     console.log("Wrong!");
     timeLeft = timeLeft - 5;
-    
-  } 
-  q ++;
-  if (questions.length === q) {
+  }
+  if (questions.length === q.length) {
     console.log("End game")
   } else {
-    callQuestion();
+    if (q < 5) callQuestion();
   }
-  
 }
 function endGame() {
-  if (q.length = 5 || timeLeft <0)
-  alert("Game over"); 
+  if (winCount == 5) {
+    alert("You win!");
+  } else{
+    if (timeLeft === 0)
+    alert("Game over :(");
+  } 
 }
 
 var q = 0
@@ -113,3 +130,8 @@ var q = 0
 // replace console logs with functions
 // In local storage i want to make an object for each score with initial and score, push those into an array of objects, stringify that array into local storage and then parse it out of local storage
 // stingify data in, parse out
+
+// To-do
+// Save initials and score 
+
+
