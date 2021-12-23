@@ -73,13 +73,13 @@ startButton.addEventListener('click', function () {
       //Stops timer when it hits 0 
       clearInterval(timer);
       time.setAttribute('style', 'color:red');
-      time.textContent = "You're out of time!";
     }
   }, 1000);
   //begin showing questions
   callQuestion();
 });
 
+//function to display next question
 function callQuestion() {
   questionDisplay.textContent = questions[q].question;
   var answerContainer = document.querySelector(".answers-container");
@@ -93,7 +93,7 @@ function callQuestion() {
     answerContainer.appendChild(answerBox);
   });
 }
-
+//function to check answer and go to next question when answered correctly 
 function checkAnswer(event) {
   var choice = event.target.dataset.choice;
   console.log(event);
@@ -101,15 +101,16 @@ function checkAnswer(event) {
     console.log("Correct!");
     winCount++;
     console.log(winCount);
-    //when users select correct answer, save it to an a0[rray to later be referenced to for "game over" condition
+    //when users select correct answer add correct answer to userChoices array and proceed to next question
     var userChoices = [];
     userChoices.push(choice.value);
     console.log(userChoices);
     q++;
   } else {
+    // if incorrect answer is selected, decrease 5 seconds from remaining time
     console.log("Wrong!");
     timeLeft = timeLeft - 5;
-  }
+  } 
   if (questions.length === q.length) {
     console.log("End game")
   } else {
@@ -117,16 +118,21 @@ function checkAnswer(event) {
   }
 }
 function endGame() {
+  //if all questions are answered correctly before time ends, game is won
   if (winCount == 5) {
     alert("You win!");
     console.log(timeLeft);
+    time.textContent = "You win!";
+    // make user score object and save it to local storage
      userInitials = prompt('Enter initials');
      userScores.push({userInitials, timeLeft});
      console.log(userScores);
      localStorage.setItem("score", JSON.stringify(userScores));
+     //if not all questions are answered correctly before time ends, game is lost
   } else{
     if (timeLeft === 0)
     alert("Game over :(");
+    time.textContent = "You're out of time!";
   } 
 }
 
@@ -138,5 +144,8 @@ var q = 0
 
 // To-do
 // Save initials and score 
+// add "wrong" or "correct" text for choice select
+// make button to restart game 
+// make element to view hiscores
 
 
