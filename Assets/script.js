@@ -12,16 +12,16 @@ var removeInstructions = document.querySelector(".quiz-instructions");
 //saves user name
 // var userName = ; 
 //saves score
-var score = timeLeft;
+// access score to save to localstorage
 //Text for incorrect answer
 var answerValidator = document.getElementById("results");
 //Initial amount of time for quiz 
 var timeLeft = 60;
-// var currentQuestion = {};
 
 var winCount = 0;
-
 //save user inputs to array
+var userScores = [];
+var userInitials;
 
 //Quiz questions object
 var questions = [
@@ -101,7 +101,7 @@ function checkAnswer(event) {
     console.log("Correct!");
     winCount++;
     console.log(winCount);
-    //when users select correct answer, save it to an array to later be referenced to for "game over" condition
+    //when users select correct answer, save it to an a0[rray to later be referenced to for "game over" condition
     var userChoices = [];
     userChoices.push(choice.value);
     console.log(userChoices);
@@ -119,6 +119,11 @@ function checkAnswer(event) {
 function endGame() {
   if (winCount == 5) {
     alert("You win!");
+    console.log(timeLeft);
+     userInitials = prompt('Enter initials');
+     userScores.push({userInitials, timeLeft});
+     console.log(userScores);
+     localStorage.setItem("score", JSON.stringify(userScores));
   } else{
     if (timeLeft === 0)
     alert("Game over :(");
