@@ -96,3 +96,15 @@ margin-bottom: 25px;
 .hide {
   display: none;
 }
+
+
+#replay-button {
+  padding: 15px;
+  font-size: 25px;
+  background: rgb(216, 243, 220);
+ color:rgb(30, 34, 33);
+  margin-left: 47%;
+  margin-bottom: 30px;
+  background-size: 100px;
+  width: 150px;
+}

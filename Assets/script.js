@@ -1,25 +1,33 @@
-//Access to start button
+//Access element for start button
 var startButton = document.getElementById("start-button");
+
+//Access element for start button
+var replayButton = document.getElementById("replay-button");
+
 //Access value of time remaining 
 var time = document.getElementById("time");
+
 //Access area where questions will be displayed
+
 var questionDisplay = document.getElementById("question");
+
 //Access area where answers will be displayed
 var answerChoices = document.querySelectorAll(".answer-text")
+
 //Access elements to remove them from screen
 var removeIntro = document.getElementById("intro");
 var removeInstructions = document.querySelector(".quiz-instructions");
-//saves user name
-// var userName = ; 
-//saves score
-// access score to save to localstorage
+
 //Text for incorrect answer
 var answerValidator = document.getElementById("results");
+
 //Initial amount of time for quiz 
 var timeLeft = 60;
 
+//variable to track correct questions, used for win condition
 var winCount = 0;
-//save user inputs to array
+
+//save user score to array
 var userScores = [];
 var userInitials;
 
@@ -79,6 +87,11 @@ startButton.addEventListener('click', function () {
   callQuestion();
 });
 
+// Function to replay game
+replayButton.addEventListener('click', function () {
+  document.location.reload(true)
+});
+
 //function to display next question
 function callQuestion() {
   questionDisplay.textContent = questions[q].question;
@@ -131,14 +144,14 @@ function endGame() {
      //if not all questions are answered correctly before time ends, game is lost
   } else{
     if (timeLeft === 0)
-    alert("Game over :(");
+    alert("Game over - you ran out of time");
     time.textContent = "You're out of time!";
-  } 
+  }
+  replayButton.classList.remove("hide"); 
 }
 
 var q = 0
 
-// replace console logs with functions
 // In local storage i want to make an object for each score with initial and score, push those into an array of objects, stringify that array into local storage and then parse it out of local storage
 // stingify data in, parse out
 
