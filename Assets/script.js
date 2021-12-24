@@ -135,7 +135,7 @@ function endGame() {
   if (winCount == 5) {
     alert("You win!");
     console.log(timeLeft);
-    time.textContent = "You win!";
+    time.textContent = "You win! Your score is " + timeLeft + "!";
     // make user score object and save it to local storage
      userInitials = prompt('Enter initials');
      userScores.push({userInitials, timeLeft});
@@ -158,7 +158,6 @@ var q = 0
 // To-do
 // Save initials and score 
 // add "wrong" or "correct" text for choice select
-// make button to restart game 
 // make element to view hiscores
 
 
