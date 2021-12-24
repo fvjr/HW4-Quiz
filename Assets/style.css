@@ -6,7 +6,7 @@ body {
 
 #intro {
   text-align: center;
-  margin-top: 3%;
+  margin-top: 13%;
   font-size: 40px;
   background:rgb(30, 34, 33);
   margin-left: 550px;
@@ -15,6 +15,7 @@ body {
   border-style: solid;
   border-radius: 10px;
   border-color: aqua;
+  padding: 30px;
 }
 
 .quiz-instructions{
@@ -71,6 +72,7 @@ border-color: aqua;
   border-style: solid;
   border-radius: 10px;
   border-color: aqua;
+  margin-top: 13%;
 }
 
 .answers-box {
