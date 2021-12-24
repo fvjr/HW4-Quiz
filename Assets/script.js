@@ -35,28 +35,28 @@ var userInitials;
 var questions = [
   {
     question: 'Which of the following JavaScript operators would you use to check strict equality between two different values?',
-    choices: ['===', '==', '<=>', '(=)'],
-    correctAnswer: "===",
+    choices: ['A. ===', 'B. ==', 'C. <=>', 'D. (=)'],
+    correctAnswer: 'A. ===',
   },
   {
     question: 'Which of the following is not a JavaScript data type?',
-    choices: ['string', 'delta', 'number', 'boolean'],
-    correctAnswer: "delta",
+    choices: ['A. string', 'B. delta', 'C. number', 'D. boolean'],
+    correctAnswer: 'B. delta',
   },
   {
     question: 'What is the following line of code an example of? var cats = ["Maine Coon", "Scottish Fold", "Tabby", "Siamese"]',
-    choices: ['for loop', 'boolean', 'array', 'const'],
-    correctAnswer: "array",
+    choices: ['A. for loop', 'B. boolean', 'C. array', 'D. const'],
+    correctAnswer: 'C. array',
   },
   {
     question: 'Which method would you use to remove the last element from an array?',
-    choices: ['pop()', 'removeLast()', 'push()', 'flex()'],
-    correctAnswer: "pop()",
+    choices: ['A. pop()', 'B. removeLast()', 'C. push()', 'D. flex()'],
+    correctAnswer: 'A. pop()',
   },
   {
     question: 'Which type of variable has a value that is unable to be reassinged?',
-    choices: ['perm', 'let', 'var', 'const'],
-    correctAnswer: "const",
+    choices: ['A. perm', 'B. let', 'C. var', 'D. const'],
+    correctAnswer: 'D. const',
   }];
 
 
