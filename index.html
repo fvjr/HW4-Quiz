@@ -12,19 +12,19 @@
 <body>
   <header>
     <h1 id="intro">Coding Quiz Challenge!</h1>
-    <section class="quiz-instructions">
+    <div class="quiz-instructions">
       <p> This is a quiz to test your knowledge on JavaScript.</p>
       <p>Select your answer from the given options. If you answer a question incorrectly, 5 seconds will be deducted from the remaining time.</p>
       <p>The quiz is finished when you either answer all of the questions correctly or the timer reaches 0. Your
         remaining time will be saved as your score.</p>
       <p>Good luck!</p>
-    </section>
-    <section class="quiz-display">
+      </div>
+    <div class="quiz-display">
       <!-- Time display -->
-      <h1 id="time"></h1>
+      <div id="time"></div>
 
       <button id="start-button">
-        <p>Start!</p>
+        <div>Start!</div>
       </button>
       <!-- question box -->
       <div class="quiz-box hide">
@@ -49,10 +49,9 @@
           </div>
         </div>
          <button id="replay-button" class = "hide">
-            <p>Replay</p>
+            <div>Replay</div>
           </button>
-      </div>
-    </section>
+        </div>
   </header>
   <script src="./Assets/script.js"></script>
 </body>
