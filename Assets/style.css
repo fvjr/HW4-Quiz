@@ -6,11 +6,8 @@ body {
 
 #intro {
   text-align: center;
-  margin-top: 13%;
   font-size: 40px;
   background:rgb(30, 34, 33);
-  margin-left: 550px;
-  margin-right: 550px;
   color:rgb(149, 213, 178);
   border-style: solid;
   border-radius: 10px;
@@ -22,15 +19,11 @@ body {
   text-align: center;
   font-size: 25px;
   background:rgb(30, 34, 33);
-  margin-left: 625px;
-  margin-right: 625px;
-  line-height: 20px;
   color:white;
-  padding:10px;
-margin-bottom: 25px;
-border-style: solid;
-border-radius: 10px;
-border-color: aqua;
+  margin-bottom: 25px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: aqua;
 }
 
 #start-button {
@@ -38,8 +31,6 @@ border-color: aqua;
   font-size: 25px;
   background: rgb(216, 243, 220);
  color:rgb(30, 34, 33);
-  margin-left: 47%;
-  margin-bottom: 30px;
   background-size: 100px;
   width: 150px;
   border-style: solid;
@@ -52,19 +43,14 @@ border-color: aqua;
 }
 
 #time {
-    position:absolute;
-    top:0;
-    right:0;
     font-size: 48px;
 
 }
 
 #question {
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   background:rgb(30, 34, 33);
-  margin-left: 625px;
-  margin-right: 625px;
   margin-bottom: 50px;
   padding: 70px 0;
   max-height: 35px;
@@ -73,13 +59,10 @@ border-color: aqua;
   border-style: solid;
   border-radius: 10px;
   border-color: aqua;
-  margin-top: 13%;
 }
 
 .answers-box {
   position: relative;
-  margin-left: 625px;
-  margin-right: 625px;
   margin-bottom: 15px;
   border-radius: 5px;
   border-color: violet;
@@ -128,4 +111,29 @@ border-color: aqua;
   border-style: solid;
   border-radius: 10px;
   border-color: aqua;
+}
+
+
+@media screen and (max-width: 360) {
+  .quiz-box header .answers-box{
+    max-width: 50%;
+  }
+ }
+
+@media screen and (max-width: 480) {
+ .quiz-box header .answers-box{
+   max-width: 59%;
+ }
+}
+
+@media screen and (max-width: 768) {
+  .quiz-box  header .answers-box{
+    max-width: 75%;
+  }
+}
+
+@media screen and (max-width: 992) {
+  .quiz-box header .answers-box{
+    max-width: 100%;
+  }
 }
