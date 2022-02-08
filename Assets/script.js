@@ -76,7 +76,7 @@ startButton.addEventListener('click', function () {
   var timer = setInterval(function () {
     timeLeft--;
     time.textContent = timeLeft + " seconds remaining, hurry!";
-    if (timeLeft === 0 || winCount == 5) {
+    if (timeLeft === 0 || winCount == 5 || timeLeft <= 0) {
       endGame();
       //Stops timer when it hits 0 
       clearInterval(timer);
@@ -142,11 +142,10 @@ function endGame() {
      console.log(userScores);
      localStorage.setItem("score", JSON.stringify(userScores));
      //if not all questions are answered correctly before time ends, game is lost
-  } else{
-    if (timeLeft === 0)
-    alert("Game over - you ran out of time");
+    }
+  if (timeLeft === 0 || timeLeft < 0)
     time.textContent = "You're out of time!";
-  }
+    timeLeft = 0;
   replayButton.classList.remove("hide"); 
 }
 
