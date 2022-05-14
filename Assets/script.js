@@ -1,67 +1,64 @@
 //Access element for start button
 var startButton = document.getElementById("start-button");
-
 //Access element for start button
 var replayButton = document.getElementById("replay-button");
-
-//Access value of time remaining 
+//Access value of time remaining
 var time = document.getElementById("time");
-
 //Access area where questions will be displayed
-
 var questionDisplay = document.getElementById("question");
-
 //Access area where answers will be displayed
-var answerChoices = document.querySelectorAll(".answer-text")
-
+var answerChoices = document.querySelectorAll(".answer-text");
 //Access elements to remove them from screen
 var removeIntro = document.getElementById("intro");
 var removeInstructions = document.querySelector(".quiz-instructions");
-
 //Text for incorrect answer
 var answerValidator = document.getElementById("results");
-
-//Initial amount of time for quiz 
+//Initial amount of time for quiz
 var timeLeft = 60;
-
 //variable to track correct questions, used for win condition
 var winCount = 0;
-
 //save user score to array
 var userScores = [];
 var userInitials;
+//
+let highScoresMenu = document.getElementById("high-scores-menu");
+let highScoresList = document.getElementById("high-scores-list");
 
 //Quiz questions object
 var questions = [
   {
-    question: 'Which of the following JavaScript operators would you use to check strict equality between two different values?',
-    choices: ['A. ===', 'B. ==', 'C. <=>', 'D. (=)'],
-    correctAnswer: 'A. ===',
+    question:
+      "Which of the following JavaScript operators would you use to check strict equality between two different values?",
+    choices: ["A. ===", "B. ==", "C. <=>", "D. (=)"],
+    correctAnswer: "A. ===",
   },
   {
-    question: 'Which of the following is not a JavaScript data type?',
-    choices: ['A. string', 'B. delta', 'C. number', 'D. boolean'],
-    correctAnswer: 'B. delta',
+    question: "Which of the following is not a JavaScript data type?",
+    choices: ["A. string", "B. delta", "C. number", "D. boolean"],
+    correctAnswer: "B. delta",
   },
   {
-    question: 'What is the following line of code an example of? var cats = ["Maine Coon", "Scottish Fold", "Tabby", "Siamese"]',
-    choices: ['A. for loop', 'B. boolean', 'C. array', 'D. const'],
-    correctAnswer: 'C. array',
+    question:
+      'What is the following line of code an example of? var cats = ["Maine Coon", "Scottish Fold", "Tabby", "Siamese"]',
+    choices: ["A. for loop", "B. boolean", "C. array", "D. const"],
+    correctAnswer: "C. array",
   },
   {
-    question: 'Which method would you use to remove the last element from an array?',
-    choices: ['A. pop()', 'B. removeLast()', 'C. push()', 'D. flex()'],
-    correctAnswer: 'A. pop()',
+    question:
+      "Which method would you use to remove the last element from an array?",
+    choices: ["A. pop()", "B. removeLast()", "C. push()", "D. flex()"],
+    correctAnswer: "A. pop()",
   },
   {
-    question: 'Which type of variable has a value that is unable to be reassinged?',
-    choices: ['A. perm', 'B. let', 'C. var', 'D. const'],
-    correctAnswer: 'D. const',
-  }];
-
+    question:
+      "Which type of variable has a value that is unable to be reassinged?",
+    choices: ["A. perm", "B. let", "C. var", "D. const"],
+    correctAnswer: "D. const",
+  },
+];
 
 // Function for start button
-startButton.addEventListener('click', function () {
+startButton.addEventListener("click", function () {
   //removes start button
   startButton.remove();
   //removes quiz intro
@@ -78,9 +75,9 @@ startButton.addEventListener('click', function () {
     time.textContent = timeLeft + " seconds remaining, hurry!";
     if (timeLeft === 0 || winCount == 5 || timeLeft <= 0) {
       endGame();
-      //Stops timer when it hits 0 
+      //Stops timer when it hits 0
       clearInterval(timer);
-      time.setAttribute('style', 'color:red');
+      time.setAttribute("style", "color:red");
     }
   }, 1000);
   //begin showing questions
@@ -88,8 +85,8 @@ startButton.addEventListener('click', function () {
 });
 
 // Function to replay game
-replayButton.addEventListener('click', function () {
-  document.location.reload(true)
+replayButton.addEventListener("click", function () {
+  document.location.reload(true);
 });
 
 //function to display next question
@@ -106,7 +103,7 @@ function callQuestion() {
     answerContainer.appendChild(answerBox);
   });
 }
-//function to check answer and go to next question when answered correctly 
+//function to check answer and go to next question when answered correctly
 function checkAnswer(event) {
   var choice = event.target.dataset.choice;
   console.log(event);
@@ -123,9 +120,9 @@ function checkAnswer(event) {
     // if incorrect answer is selected, decrease 5 seconds from remaining time
     console.log("Wrong!");
     timeLeft = timeLeft - 5;
-  } 
+  }
   if (questions.length === q.length) {
-    console.log("End game")
+    console.log("End game");
   } else {
     if (q < 5) callQuestion();
   }
@@ -137,26 +134,52 @@ function endGame() {
     console.log(timeLeft);
     time.textContent = "You win! Your score is " + timeLeft + "!";
     // make user score object and save it to local storage
-     userInitials = prompt('Enter initials');
-     userScores.push({userInitials, timeLeft});
-     console.log(userScores);
-     localStorage.setItem("score", JSON.stringify(userScores));
-     //if not all questions are answered correctly before time ends, game is lost
-    }
-  if (timeLeft === 0 || timeLeft < 0)
-    time.textContent = "You're out of time!";
-    timeLeft = 0;
-  replayButton.classList.remove("hide"); 
+    userInitials = prompt("Enter initials");
+    userScores.push({ userInitials, timeLeft });
+    console.log(userScores);
+    localStorage.setItem("score", JSON.stringify(userScores));
+    //if not all questions are answered correctly before time ends, game is lost
+  }
+  if (timeLeft === 0 || timeLeft < 0) time.textContent = "You're out of time!";
+  timeLeft = 0;
+  replayButton.classList.remove("hide");
 }
 
-var q = 0
+var q = 0;
+
+//event listener for high scores button
+
+//show high scores in high scores list
+highScoresMenu.addEventListener("click", function () {
+  // console.log("Displaying high scores list.");
+  // console.log(localStorage);
+
+  // userScores.forEach((score) =>
+  //   console.log(
+  //     "Initials:" +
+  //       " " +
+  //       userScores.userInitials +
+  //       "Score:" +
+  //       " " +
+  //       userScores.timeLeft
+  //   )
+  // );
+  for (let i = 0; i < userScores.length; i++) {
+    console.log(
+      "Initials:" +
+        " " +
+        userScores[i].userInitials +
+        "Score:" +
+        " " +
+        userScores[i].timeLeft
+    );
+  }
+});
 
 // In local storage i want to make an object for each score with initial and score, push those into an array of objects, stringify that array into local storage and then parse it out of local storage
 // stingify data in, parse out
 
 // To-do
-// Save initials and score 
+// Save initials and score
 // add "wrong" or "correct" text for choice select
 // make element to view hiscores
-
-

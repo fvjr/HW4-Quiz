@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./Assets/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz</title>
-  <link rel="stylesheet" href="./Assets/style.css">
-</head>
-
-<body>
-  <header>
-    <h1 id="intro">Coding Quiz Challenge!</h1>
-    <div class="quiz-instructions">
-      <p> This is a quiz to test your knowledge on JavaScript.</p>
-      <p>Select your answer from the given options. If you answer a question incorrectly, 5 seconds will be deducted from the remaining time.</p>
-      <p>The quiz is finished when you either answer all of the questions correctly or the timer reaches 0. Your
-        remaining time will be saved as your score.</p>
-      <p>Good luck!</p>
+  <body>
+    <header>
+      <div id="high-scores-container">
+        <h4><button id="high-scores-menu">High Scores</button></h4>
+        <div id="high-scores-list"></div>
       </div>
-    <div class="quiz-display">
-      <!-- Time display -->
-      <div id="time"></div>
+      <h1 id="intro">Coding Quiz Challenge!</h1>
+      <div class="quiz-instructions">
+        <p>This is a quiz to test your knowledge on JavaScript.</p>
+        <p>
+          Select your answer from the given options. If you answer a question
+          incorrectly, 5 seconds will be deducted from the remaining time.
+        </p>
+        <p>
+          The quiz is finished when you either answer all of the questions
+          correctly or the timer reaches 0. Your remaining time will be saved as
+          your score.
+        </p>
+        <p>Good luck!</p>
+      </div>
+      <div class="quiz-display">
+        <!-- Time display -->
+        <div id="time"></div>
 
-      <button id="start-button">
-        Start!
-      </button>
-      <!-- question box -->
-      <div class="quiz-box hide">
-        <h2 id="question">"Question"</h2>
-        <!-- answer boxes -->
-        <div class="answers-container">
-          <!-- <div class="answers-box">
+        <button id="start-button">Start!</button>
+        <!-- question box -->
+        <div class="quiz-box hide">
+          <h2 id="question">"Question"</h2>
+          <!-- answer boxes -->
+          <div class="answers-container">
+            <!-- <div class="answers-box">
             <p class="answer-letter">A.)</p>
             <p class="answer-text" data-number="1">Choice</p>
           </div>
@@ -48,13 +55,9 @@
             <p class="answer-text" data-number="4">Choice</p> -->
           </div>
         </div>
-         <button id="replay-button" class = "hide">
-            Replay
-          </button>
-        </div>
-  </header>
-  <script src="./Assets/script.js"></script>
-</body>
-
+        <button id="replay-button" class="hide">Replay</button>
+      </div>
+    </header>
+    <script src="./Assets/script.js"></script>
+  </body>
 </html>
-
